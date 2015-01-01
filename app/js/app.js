@@ -1,12 +1,20 @@
 var adsApp = angular.module('adsApp', [
   'ngRoute',
-  'adsControllers']);
+  'adsControllers'
+]);
 
 adsApp.config(function($routeProvider) {
-  $routeProvider.when('#/',
-      {
-        controller: 'AdsController',
-        templateUrl: 'templates/ads'
-      });
-  $routeProvider.otherwise({redirectTo: '#/'});
-}]);
+    $routeProvider.when('/ads',
+        {
+            templateUrl: 'templates/ads.html',
+            controller: 'AdsController'
+        });
+
+    $routeProvider.when('/home',
+        {
+            templateUrl: 'templates/home.html',
+            controller: 'AdsController'
+        });
+
+    $routeProvider.otherwise({redirectTo: '/ads'});
+});
