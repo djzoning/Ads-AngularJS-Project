@@ -6,13 +6,7 @@ var adsApp = angular.module('adsApp', [
 adsApp.config(function($routeProvider) {
     $routeProvider.when('/ads',
         {
-            templateUrl: 'templates/ads.html',
-            controller: 'AdsController'
-        });
-
-    $routeProvider.when('/home',
-        {
-            templateUrl: 'templates/home.html',
+            templateUrl: 'templates/ads-view.html',
             controller: 'AdsController'
         });
 
