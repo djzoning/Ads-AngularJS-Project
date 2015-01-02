@@ -9,7 +9,7 @@ adsApp.config(function($routeProvider) {
 
     $routeProvider.when('/sign-up',
         {
-            templateUrl: 'templates/register.html',
+            templateUrl: 'templates/sign-up.html',
             controller: 'AdsController'
         });
 
