@@ -6,10 +6,26 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="css/app.css" />
 </head>
-<body ng-app="adsApp">
-  <div class="container" ng-view=""></div>
+<body ng-app="adsApp" class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">Ads Yo!</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li><a href="#">Ads</a></li>
+          <li><a href="#/sign-up">Sign Up</a></li>
+          <li><a href="#/login">Login</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <div class="container">
+  <div ng-view=""></div>
+
+  <div>
     <p class="text-muted">
       Angular seed app: v<span app-version>1.0</span>
     </p>
