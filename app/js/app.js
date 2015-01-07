@@ -1,17 +1,25 @@
-var adsApp = angular.module('adsApp', ['ngRoute']);
+'use strict';
 
-adsApp.config(function($routeProvider) {
-    $routeProvider.when('/ads',
-        {
-            templateUrl: 'templates/ads-view.html',
-            controller: 'AdsController'
-        });
+var app = angular.module('app', ['ngRoute', 'ngResource', 'angular-loading-bar']);
 
-    $routeProvider.when('/sign-up',
-        {
-            templateUrl: 'templates/sign-up.html',
-            controller: 'AdsController'
-        });
+app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
+app.constant('pageSize', 2);
 
-    $routeProvider.otherwise({redirectTo: '/ads'});
+app.config(function ($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'templates/home.html',
+        controller: 'HomeController'
+    });
+
+    $routeProvider.when('/login', {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController'
+    });
+
+    $routeProvider.when('/register', {
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterController'
+    });
+
+    $routeProvider.otherwise({ redirectTo: '/' });
 });
