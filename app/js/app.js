@@ -23,5 +23,9 @@ app.config(function ($routeProvider) {
         controller: 'RegisterController'
     });
 
+    $routeProvider.when('/user/ads', {
+        template: '<div>user adssssssssss</div>'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
