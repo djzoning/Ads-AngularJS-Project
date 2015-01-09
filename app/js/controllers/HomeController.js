@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('HomeController',
-        function($scope, adsService, notifyService, pageSize){
+        function($scope, adsService, notifyService, pageSize, categoriesService, townsService){
     $scope.adsParams = {
         'startPage' : 1,
         'pageSize' : pageSize
@@ -18,6 +18,18 @@ app.controller('HomeController',
     };
 
     $scope.reloadAds();
+
+    categoriesService.getCategories(function(data){
+        console.log(data);
+    },function(error){
+        console.log(error);
+    })
+
+    townsService.getTowns(function(data){
+        console.log(data);
+    },function(error){
+        console.log(error);
+    })
 
     //adsService.getAds(
     //    null,
