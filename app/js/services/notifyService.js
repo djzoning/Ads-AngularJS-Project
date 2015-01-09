@@ -4,11 +4,19 @@ app.factory('notifyService', function(){
     return {
         showInfo: function(msg){
             noty({
-                    text: msg,
-                    type: 'info',
-                    layout: 'topCenter',
-                    timeout: 1000}
+                text: msg,
+                type: 'info',
+                layout: 'topCenter',
+                timeout: 1000}
             );
+        },
+        showSuccess: function(msg){
+            noty({
+                text: msg,
+                type: 'success',
+                layout: 'topCenter',
+                timeout: 1000
+            });
         },
         showError: function(msg, serverError){
             // Collect errors to display from the server response

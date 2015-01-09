@@ -22,7 +22,7 @@ app.factory('authService', function($http, baseServiceUrl){
                 data: userData
             };
 
-            $http(reguest).success(function(data){
+            $http(request).success(function(data){
                 sessionStorage['currentUser'] = JSON.stringify(data);
                 success(data);
             }).error(error);
