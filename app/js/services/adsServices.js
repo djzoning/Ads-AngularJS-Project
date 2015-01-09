@@ -23,7 +23,11 @@ app.factory('townsService', function($resource, baseServiceUrl) {
 });
 
 app.factory('categoriesService', function($resource, baseServiceUrl){
+    var categoriesResource = $resource(baseServiceUrl + '/api/categories');
+
     return {
-        //TODO implement a service to get categories
+        getCategories : function(success, error){
+            return categoriesResource.query(success, error);
+        }
     };
 });

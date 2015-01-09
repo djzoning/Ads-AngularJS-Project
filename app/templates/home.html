@@ -1,5 +1,10 @@
+<pagination total-items="data.numItems" ng-model="adsParams.startPage"
+            items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+            maxSize="9" boundary-links="true">
+</pagination>
+
 <ul class="ads">
-    <li ng-repeat="ad in ads.ads" class="box">
+    <li ng-repeat="ad in data.ads" class="box">
         <h1>{{ad.title}}</h1>
         <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
         <div ng-if="ad.imageDataUrl">
@@ -7,11 +12,12 @@
             <img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
         </div>
         <div><strong>Text:</strong> {{ad.text}}</div>
+        <div><strong>Name:</strong> {{ad.ownerName}}</div>
         <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
         <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
     </li>
 </ul>
 
-<div ng-if="ads.ads.length==0" class="box no-data">
+<div ng-if="data.ads.length==0" class="box no-data">
     No ads found.
 </div>
