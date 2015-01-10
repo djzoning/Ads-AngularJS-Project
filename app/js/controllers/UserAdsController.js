@@ -12,12 +12,20 @@ app.controller('UserAdsController', function($scope, $http, authService,
         adsService.getUserAds($scope.userAdsParams,
             function (data) {
                 $scope.data = data;
-                console.log(data);
             },
             function (error) {
                 notifyService.showError('Loading user ads failed', error)
-                console.log(error);
             });
+    };
+
+    $scope.deactivate = function(id){
+        adsService.deleteAd(id,
+        function(data){
+            notifyService.showSuccess(data.message);
+        },
+        function(error){
+            notifyService.showError('Deactivating ad failed', error);
+        })
     };
 
     $scope.reloadUserAds();

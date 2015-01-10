@@ -14,7 +14,7 @@ app.controller('UserPublishNewAdController', function($scope, $location,
             function error(error){
                 notifyService.showError('Create ad failed', error);
             })
-    }
+    };
     $scope.fileSelected = function(fileInputField){
         delete $scope.adData.imageDataUrl;
         var file = fileInputField.files[0];

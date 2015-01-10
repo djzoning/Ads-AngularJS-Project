@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('adsService', function($resource, baseServiceUrl, authService){
+app.factory('adsService', function($http, $resource, baseServiceUrl, authService){
     var adsResource = $resource(
         baseServiceUrl + '/api/ads',
         null,
@@ -16,6 +16,10 @@ app.factory('adsService', function($resource, baseServiceUrl, authService){
             'getUserAds': {
                 method: 'GET',
                 headers: authService.getAuthHeaders()
+            },
+            'delete': {
+                method: 'DELETE',
+                headers: authService.getAuthHeaders()
             }
         }
     );
@@ -26,6 +30,15 @@ app.factory('adsService', function($resource, baseServiceUrl, authService){
         },
         getUserAds: function(params, success, error){
             return userAdsResource.getUserAds(params, success, error);
+        },
+        deleteAd: function(id, success, error){
+            var request ={
+                method: 'DELETE',
+                url: baseServiceUrl + '/api/user/ads/' + id,
+                headers: authService.getAuthHeaders()
+            };
+
+            $http(request).success(success).error(error);
         }
     };
 });
