@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('adsService', function($resource, baseServiceUrl){
+app.factory('adsService', function($resource, baseServiceUrl, authService){
     var adsResource = $resource(
         baseServiceUrl + '/api/ads',
         null,
@@ -9,9 +9,37 @@ app.factory('adsService', function($resource, baseServiceUrl){
         }
     );
 
+    var userAdsResource = $resource(
+        baseServiceUrl + '/api/user/ads',
+        null,
+        {
+            'getUserAds': {
+                method: 'GET',
+                headers: authService.getAuthHeaders()
+            }
+        }
+    );
+
     return {
         getAds: function(params, success, error){
             return adsResource.getAll(params, success, error);
+        },
+        getUserAds: function(params, success, error){
+            return userAdsResource(params, success, error);
+        }
+    };
+});
+
+app.factory('userAdsService', function($http, baseServiceUrl, authService){
+    return {
+        getUserAds: function(success, error){
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + '/api/user/ads',
+                headers: authService.getAuthHeaders()
+            };
+
+            return $http(request).success(success).error(error);
         }
     };
 });

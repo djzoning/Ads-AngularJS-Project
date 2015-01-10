@@ -26,4 +26,11 @@
         <a ng-click="publishAd(adData)"class="button">Publish</a>
         <a href="#/user/ads" class="button">Cancel</a>
     </p>
+    <p>
+        <label for="image">Image:</label>
+        <input type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)" />
+        <div class="image-box">
+            <p>Image Preview</p>
+        </div>
+    </p>
 </div>

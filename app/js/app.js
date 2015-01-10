@@ -24,7 +24,8 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/user/ads', {
-        template: '<div>user adssssssssss</div>'
+        templateUrl: 'templates/user/user-ads.html',
+        controller: 'UserAdsController'
     });
 
     $routeProvider.when('/user/ads/publish', {
@@ -38,7 +39,7 @@ app.config(function ($routeProvider) {
 app.run(function($rootScope, $location, authService){
     $rootScope.$on('$locationChangeStart', function(event){
         if($location.path().indexOf('/user/') != -1 && !authService.isLoggedIn()){
-            $location.path('/');
+            $location.path('/login');
         }
     })
 });
