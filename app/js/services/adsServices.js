@@ -25,7 +25,7 @@ app.factory('adsService', function($resource, baseServiceUrl, authService){
             return adsResource.getAll(params, success, error);
         },
         getUserAds: function(params, success, error){
-            return userAdsResource(params, success, error);
+            return userAdsResource.getUserAds(params, success, error);
         }
     };
 });

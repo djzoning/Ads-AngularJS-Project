@@ -8,15 +8,18 @@ app.controller('UserAdsController', function($scope, $http, authService,
         //headers: authService.getAuthHeaders()
     };
 
-    adsService.getUserAds($scope.userAdsParams,
-    function(data){
-        console.log(data);
-        console.log('daaaaaaa');
-    },
-    function(error){
-        console.log(error);
-        console.log('neeeee');
-    });
+    $scope.reloadUserAds = function() {
+        adsService.getUserAds($scope.userAdsParams,
+            function (data) {
+                $scope.data = data;
+                console.log(data);
+            },
+            function (error) {
+                console.log(error);
+            });
+    };
+
+    $scope.reloadUserAds();
 
     //userAdsService.getUserAds(
     //    function(data){
