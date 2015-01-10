@@ -37,6 +37,10 @@ app.factory('getUserInfoService', function($resource, baseServiceUrl, authServic
             getInfo: {
                 method: 'GET',
                 headers: authService.getAuthHeaders()
+            },
+            edit: {
+                method: 'PUT',
+                headers: authService.getAuthHeaders()
             }
         }
     );
@@ -44,6 +48,9 @@ app.factory('getUserInfoService', function($resource, baseServiceUrl, authServic
     return {
         getUserInfo: function(success, error){
             return userInfoResource.getInfo(success, error);
+        },
+        editProfile: function(editedUserInfo, success, error){
+            return userInfoResource.edit(editedUserInfo, success, error);
         }
     }
 });

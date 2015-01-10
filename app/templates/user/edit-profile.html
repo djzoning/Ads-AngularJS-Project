@@ -1,6 +1,18 @@
 <div class="box">
-    <h2>Edit profile - {{data.name}}</h2>
-    <div><strong>Name:</strong>{{data.name}}</div>
-    <div><strong>Email:</strong>{{data.email}}</div>
-    <div><strong>Phone:</strong>{{data.phoneNumber}}</div>
+    <h2>Edit profile - {{userInfo.name}}</h2>
+    <div><strong>Name: </strong>{{userInfo.name}}
+        <input type="text"
+               ng-model="editedUserInfo.name" />
+    </div>
+    <div><strong>Email: </strong>{{userInfo.email}}
+        <input type="email"
+               ng-model="editedUserInfo.email" />
+    </div>
+    <div><strong>Phone: </strong>{{userInfo.phoneNumber}}
+        <input type="text"
+               ng-model="editedUserInfo.phoneNumber" />
+    </div>
+    <div>
+        <a class="button" ng-click="editUserProfile(editedUserInfo)">Edit profile</a>
+    </div>
 </div>
