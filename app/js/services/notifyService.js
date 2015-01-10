@@ -18,6 +18,14 @@ app.factory('notifyService', function(){
                 timeout: 1000
             });
         },
+        showConfirm: function(msg){
+            noty({
+                text: msg,
+                type: 'confirm',
+                layout: 'topCenter',
+                timeout: 1000
+            });
+        },
         showError: function(msg, serverError){
             // Collect errors to display from the server response
             var errors = [];

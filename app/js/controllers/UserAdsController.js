@@ -19,13 +19,17 @@ app.controller('UserAdsController', function($scope, $http, authService,
     };
 
     $scope.deactivate = function(id){
-        adsService.deleteAd(id,
-        function(data){
-            notifyService.showSuccess(data.message);
-        },
-        function(error){
-            notifyService.showError('Deactivating ad failed', error);
-        })
+        var yes = confirm('Are you sure about deactivating this ad?');
+        if(yes){
+            adsService.deleteAd(id,
+                function(data){
+                    notifyService.showSuccess(data.message);
+                    $scope.reloadUserAds();
+                },
+                function(error){
+                    notifyService.showError('Deactivating ad failed', error);
+                })
+        }
     };
 
     $scope.reloadUserAds();
