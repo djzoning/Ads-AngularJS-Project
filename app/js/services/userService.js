@@ -29,7 +29,7 @@ app.factory('userService', function($http,baseServiceUrl, authService){
     }
 });
 
-app.factory('getUserInfoService', function($resource, baseServiceUrl, authService){
+app.factory('userInfoService', function($resource, baseServiceUrl, authService){
     var userInfoResource = $resource(
         baseServiceUrl + '/api/user/profile',
         null,

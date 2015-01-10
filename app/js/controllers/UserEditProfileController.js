@@ -1,21 +1,27 @@
 'use strict';
 
 app.controller('UserEditProfileController', function($scope,
-        getUserInfoService, notifyService){
-    getUserInfoService.getUserInfo(function(data){
-        $scope.userInfo = data;
-    },
-    function(error){
-        notifyService.showError('Getting user info failed', error);
-    });
+        userInfoService, notifyService){
+
+    var reloadUserInfo = function(){
+        userInfoService.getUserInfo(function(data){
+                $scope.userInfo = data;
+            },
+            function(error){
+                notifyService.showError('Getting user info failed', error);
+            });
+    }
+
+    reloadUserInfo();
 
     $scope.editUserProfile = function(editedUserInfo){
-        getUserInfoService.editProfile(editedUserInfo,
+        userInfoService.editProfile(editedUserInfo,
         function(data){
             notifyService.showSuccess(data.message);
+            reloadUserInfo();
         },
         function(error){
-            notifyService.showError(error);
+            notifyService.showError('You have entered invalid user info', error);
         });
     }
 });
