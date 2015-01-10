@@ -15,6 +15,7 @@ app.controller('UserAdsController', function($scope, $http, authService,
                 console.log(data);
             },
             function (error) {
+                notifyService.showError('Loading user ads failed', error)
                 console.log(error);
             });
     };

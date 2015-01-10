@@ -28,3 +28,22 @@ app.factory('userService', function($http,baseServiceUrl, authService){
         }
     }
 });
+
+app.factory('getUserInfoService', function($resource, baseServiceUrl, authService){
+    var userInfoResource = $resource(
+        baseServiceUrl + '/api/user/profile',
+        null,
+        {
+            getInfo: {
+                method: 'GET',
+                headers: authService.getAuthHeaders()
+            }
+        }
+    );
+
+    return {
+        getUserInfo: function(success, error){
+            return userInfoResource.getInfo(success, error);
+        }
+    }
+});
