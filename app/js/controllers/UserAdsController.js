@@ -1,7 +1,8 @@
 'use strict';
 
 app.controller('UserAdsController', function($scope, $http, authService,
-        userAdsService, pageSize, adsService, baseServiceUrl, notifyService){
+        userAdsService, pageSize, adsService, baseServiceUrl,
+        notifyService, userService){
     $scope.userAdsParams = {
         startPage: 1,
         pageSize: pageSize//,
@@ -21,8 +22,9 @@ app.controller('UserAdsController', function($scope, $http, authService,
     $scope.deactivate = function(id){
         var yes = confirm('Are you sure about deactivating this ad?');
         if(yes){
-            adsService.deleteAd(id,
+            userService.deactivateAd(id,
                 function(data){
+                    console.log(data);
                     notifyService.showSuccess(data.message);
                     $scope.reloadUserAds();
                 },

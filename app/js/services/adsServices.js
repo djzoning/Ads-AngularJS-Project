@@ -16,10 +16,6 @@ app.factory('adsService', function($http, $resource, baseServiceUrl, authService
             'getUserAds': {
                 method: 'GET',
                 headers: authService.getAuthHeaders()
-            },
-            'delete': {
-                method: 'DELETE',
-                headers: authService.getAuthHeaders()
             }
         }
     );
