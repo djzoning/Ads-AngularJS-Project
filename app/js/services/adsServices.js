@@ -35,6 +35,15 @@ app.factory('adsService', function($http, $resource, baseServiceUrl, authService
             };
 
             $http(request).success(success).error(error);
+        },
+        getAdById: function(id, success, error){
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + '/api/user/ads/' + id,
+                headers: authService.getAuthHeaders()
+            };
+
+            $http(request).success(success).error(error);
         }
     };
 });

@@ -19,13 +19,37 @@ app.controller('UserAdsController', function($scope, $http, authService,
             });
     };
 
+    $scope.delete = function(id){
+        var yes = confirm('Are you sure?');
+        if(yes){
+            userService.deleteAd(id,
+            function(data){
+                notifyService.showSuccess('Advertisement deleted');
+                $scope.reloadUserAds();
+            },
+            function(error){
+                notifyService.showError('Deleting ad failed', error);
+            });
+        }
+    };
+
+    $scope.publishAgain = function(id){
+        userService.publishAgainAd(id,
+        function(data){
+            notifyService.showSuccess('Advertisement submitted for approval');
+            $scope.reloadUserAds();
+        },
+        function(error){
+            notifyService.showError('Publishing ad failed', error);
+        })
+    };
+
     $scope.deactivate = function(id){
         var yes = confirm('Are you sure about deactivating this ad?');
         if(yes){
             userService.deactivateAd(id,
                 function(data){
-                    console.log(data);
-                    notifyService.showSuccess(data.message);
+                    notifyService.showSuccess('Advertisement deactivated');
                     $scope.reloadUserAds();
                 },
                 function(error){
@@ -33,6 +57,10 @@ app.controller('UserAdsController', function($scope, $http, authService,
                 })
         }
     };
+
+    $scope.pushId  = function(id){
+        sessionStorage.adId = id;
+    }
 
     $scope.reloadUserAds();
 

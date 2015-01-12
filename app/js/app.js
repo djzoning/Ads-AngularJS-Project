@@ -5,7 +5,7 @@ var app = angular.module('app', [
     'angular-loading-bar', 'ui.bootstrap.pagination']);
 
 app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
-app.constant('pageSize', 2);
+app.constant('pageSize', 5);
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
@@ -36,6 +36,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/user/edit-profile', {
         templateUrl: 'templates/user/edit-profile.html',
         controller: 'UserEditProfileController'
+    });
+
+    $routeProvider.when('/user/ads/edit', {
+        templateUrl: 'templates/user/edit-ad.html',
+        controller: 'UserEditAdController'
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });
