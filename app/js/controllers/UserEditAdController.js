@@ -3,19 +3,18 @@
 app.controller('UserEditAdController', function($scope, adsService, townsService,
         categoriesService, userService, notifyService){
 
+    $scope.name = 'Ivan';
+
     $scope.adId = sessionStorage.getItem('adId');
 
     $scope.editAd = function(adData){
         userService.editAd($scope.adId, adData,
         function(data){
-            console.log(data);
-            console.log(data.message);
-            console.log('tuka');
             notifyService.showSuccess('Advertisement edited');
             $scope.getAdInfo();
         },
         function(error){
-            notifyService.showError('Edit failed');
+            notifyService.showError('Edit failed.\nTitle and text are required\nYou should type new values in the corresponding fields');
         })
     };
 
@@ -23,7 +22,7 @@ app.controller('UserEditAdController', function($scope, adsService, townsService
 
         adsService.getAdById($scope.adId,
         function(data){
-            $scope.ad = data;
+            $scope.adData = data;
         },
         function(error){
             notifyService.showError('Loading ad info failed');

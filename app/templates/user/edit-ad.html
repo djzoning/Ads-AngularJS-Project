@@ -2,19 +2,16 @@
     <h2>Edit Ad</h2>
     <p>
         <label for="title">Title:</label>
-        <input value="{{ad.title}}" class="well" type="text" id="title" ng-model="adData.title" placeholder="{{ad.title}}" required />
+        <input value="{{name}}" class="well" type="text" id="title" ng-model="adData.title" required />
     </p>
     <p>
         <label for="text">Text:</label>
         <div>
-            <textarea value=""{{ad.text}}" class="well" id="text" ng-model="adData.text" placeholder="{{ad.text}}" required></textarea>
+            <textarea class="well" id="text" ng-model="adData.text" required></textarea>
         </div>
     </p>
     <p class="well">
         <label for="category">Category:</label>
-        <mark class="box well-lg">
-            {{ad.categoryName}}
-        </mark>&nbsp;
         <select id="category" ng-model="adData.categoryId">
             <option value="null">(None)</option>
             <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
@@ -22,7 +19,6 @@
     </p>
     <p class="well">
         <label for="town">Town:</label>
-        <mark class="box well-lg">{{ ad.townName }}</mark>&nbsp;
         <select id="town" ng-model="adData.townId">
             <option value="null">(None)</option>
             <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>

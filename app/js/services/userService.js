@@ -61,7 +61,7 @@ app.factory('userService', function($http,baseServiceUrl, authService){
     }
 });
 
-app.factory('userInfoService', function($resource, baseServiceUrl, authService){
+app.factory('userInfoService', function($http, $resource, baseServiceUrl, authService){
     var userInfoResource = $resource(
         baseServiceUrl + '/api/user/profile',
         null,
@@ -81,8 +81,15 @@ app.factory('userInfoService', function($resource, baseServiceUrl, authService){
         getUserInfo: function(success, error){
             return userInfoResource.getInfo(success, error);
         },
-        editProfile: function(editedUserInfo, success, error){
-            return userInfoResource.edit(editedUserInfo, success, error);
+        editProfile: function(userInfo, success, error){
+            var request = {
+                method: 'PUT',
+                url: baseServiceUrl + '/api/user/profile',
+                data: userInfo,
+                headers: authService.getAuthHeaders()
+            };
+
+            $http(request).success(success).error(error);
         }
     }
 });

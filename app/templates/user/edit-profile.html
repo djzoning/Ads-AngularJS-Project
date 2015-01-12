@@ -1,22 +1,23 @@
 <div class="box">
     <h2>Edit profile - {{userInfo.name}}</h2>
-    <div><strong>Name: </strong>{{userInfo.name}}
+    <div><strong>Name: </strong>
         <input type="text"
-               ng-model="editedUserInfo.name" />
+               ng-model="userInfo.name" />
     </div>
-    <div><strong>Email: </strong>{{userInfo.email}}
+    <div><strong>Email: </strong>
         <input type="email"
-               ng-model="editedUserInfo.email" />
+               ng-model="userInfo.email" />
     </div>
-    <div><strong>Phone: </strong>{{userInfo.phoneNumber}}
+    <div><strong>Phone: </strong>
         <input type="text"
-               ng-model="editedUserInfo.phoneNumber" />
+               ng-model="userInfo.phoneNumber" />
     </div>
-    <div><strong>Town id: </strong>{{userInfo.townId}}
-        <input type="number"
-               ng-model="editedUserInfo.townId" />
+    <div><strong>Town id: </strong>
+        <select ng-model="userInfo.townId">
+            <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+        </select>
     </div>
     <div>
-        <a class="button" ng-click="editUserProfile(editedUserInfo)">Edit profile</a>
+        <a class="button" ng-click="editUserProfile()">Edit profile</a>
     </div>
 </div>
