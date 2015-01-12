@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('UserEditProfileController', function($scope,
-        userInfoService, notifyService, townsService){
+        userInfoService, notifyService, townsService, userService){
 
     var reloadUserInfo = function(){
         userInfoService.getUserInfo(function(data){
@@ -29,5 +29,15 @@ app.controller('UserEditProfileController', function($scope,
         $scope.towns = data;
     },function(error){
         notifyService.showError('Loading towns failed', error);
-    })
+    });
+
+    $scope.changePassword = function(userPass){
+        userService.changePassword(userPass,
+        function(data){
+            notifyService.showSuccess(data.message);
+        },
+        function(error){
+            notifyService.showError('Changing password failed', error);
+        });
+    }
 });

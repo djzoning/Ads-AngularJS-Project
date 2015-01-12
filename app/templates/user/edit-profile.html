@@ -23,4 +23,21 @@
             <a class="button" ng-click="editUserProfile()">Edit profile</a>
         </div>
     </div>
+    <div class="box well-lg">
+        <div>
+            <strong>Old password: </strong>
+            <input type="password"
+                   ng-model="userPass.oldPassword"
+                   class="form-control" />
+            <strong>Password: </strong>
+            <input type="password"
+                   ng-model="userPass.newPassword"
+                   class="form-control" />
+            <strong>Confirm Password: </strong>
+            <input type="password"
+                   ng-model="userPass.confirmPassword"
+                   class="form-control" />
+            <a class="button" ng-click="changePassword(userPass)">Change Password</a>
+        </div>
+    </div>
 </div>
