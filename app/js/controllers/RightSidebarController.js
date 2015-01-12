@@ -18,6 +18,6 @@ app.controller('RightSidebarController', function($scope, $rootScope, $location,
     $scope.checkUrl = function(){
         return $location.path().indexOf('/user') == -1
             && $location.path().indexOf('/login') == -1
-            && $location.path().indexOf('/register') == -1;
+            &&  $location.path().indexOf('/register') == -1;
     }
 });

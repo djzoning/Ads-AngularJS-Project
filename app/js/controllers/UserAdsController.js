@@ -60,7 +60,13 @@ app.controller('UserAdsController', function($scope, $http, authService,
 
     $scope.pushId  = function(id){
         sessionStorage.adId = id;
-    }
+    };
+
+    $scope.$on('statusSelectionChanged', function(event, status){
+        $scope.userAdsParams.status = status;
+        $scope.userAdsParams.startPage = 1;
+        $scope.reloadUserAds();
+    });
 
     $scope.reloadUserAds();
 

@@ -28,6 +28,22 @@
     </ul>
 </div>
 
+<div ng-if="checkUrl()" class="box">
+    <h2>My Ads</h2>
+    <ul class="sidebar-menu">
+        <li class="special"
+            ng-class="{'selected' : selectedStatus == null}"
+            ng-click="statusClicked(null)">
+            All
+        </li>
+        <li ng-repeat="status in statuses"
+            ng-click="statusClicked(status)"
+            ng-class="{'selected' : selectedStatus == status}">
+            {{status}}
+        </li>
+    </ul>
+</div>
+
 <!-- - logged in administrators -->
 
 <div ng-if="authService.isAdmin()" class="box">

@@ -1,0 +1,14 @@
+'use strict';
+
+app.controller('LeftSideBarController', function($scope, $location, $rootScope){
+    $scope.checkUrl = function(){
+        return $location.path() == '/user/ads';
+    }
+
+    $scope.statuses = ['Inactive', 'Published', 'WaitingApproval', 'Rejected'];
+
+    $scope.statusClicked = function(status){
+        $scope.selectedStatus = status;
+        $rootScope.$broadcast('statusSelectionChanged', status);
+    }
+});
