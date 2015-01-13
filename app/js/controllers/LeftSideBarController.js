@@ -5,6 +5,10 @@ app.controller('LeftSideBarController', function($scope, $location, $rootScope){
         return $location.path() == '/user/ads';
     };
 
+    $scope.adminCheckUrl = function() {
+        return $location.path() == '/admin/home';
+    }
+
     $scope.statuses = ['Inactive', 'Published', 'WaitingApproval', 'Rejected'];
 
     $scope.statusClicked = function(status){

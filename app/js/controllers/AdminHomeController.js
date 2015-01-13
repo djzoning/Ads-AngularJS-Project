@@ -24,4 +24,16 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize){
         $scope.adsParams.startPage = 1;
         $scope.reloadAds();
     });
+
+    $scope.$on('adminCategorySelectionChanged', function(event, adminSelectedCategoryId){
+        $scope.adsParams.categoryId = adminSelectedCategoryId;
+        $scope.adsParams.startPage = 1;
+        $scope.reloadAds();
+    });
+
+    $scope.$on('adminTownSelectionChanged', function(event, adminSelectedTownId){
+        $scope.adsParams.townId = adminSelectedTownId;
+        $scope.adsParams.startPage = 1;
+        $scope.reloadAds();
+    });
 });
