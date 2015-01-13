@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller('AdminHomeController', function($scope, adsService, pageSize){
+app.controller('AdminHomeController', function($scope, adsService, pageSize,
+                                               adminService, notifyService){
 
     $scope.adsParams = {
         'startPage' : 1,
@@ -36,4 +37,13 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize){
         $scope.adsParams.startPage = 1;
         $scope.reloadAds();
     });
+
+    $scope.approve = function(id){
+        adminService.approveAd(id, function(data){
+            notifyService.showSuccess('Advertisement approved');
+            $scope.reloadAds();
+        }, function(error){
+            notifyService.showError('Approving advertisement failed', error);
+        })
+    }
 });

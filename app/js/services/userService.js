@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('userService', function($http,baseServiceUrl, authService){
+app.factory('userService', function($http, baseServiceUrl, authService){
     return {
         createNewAd: function(adData, success, error){
             var request = {
