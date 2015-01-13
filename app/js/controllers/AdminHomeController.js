@@ -46,4 +46,13 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize,
             notifyService.showError('Approving advertisement failed', error);
         })
     }
+
+    $scope.reject = function(id){
+        adminService.rejectAd(id, function(data){
+            notifyService.showSuccess('Advertisement rejected');
+            $scope.reloadAds();
+        }, function(error){
+            notifyService.showError('Rejecting advertisement failed', error);
+        })
+    }
 });
