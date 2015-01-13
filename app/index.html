@@ -9,7 +9,7 @@
     <title>Ads</title>
 </head>
 <body>
-<header id="app-header">
+<header id="app-header" ng-style="{'background-color': authService.isAdmin()?'#F0DF29':''}">
     <div ng-include="'templates/partial/header.html'"></div>
 </header>
 
@@ -55,6 +55,7 @@
 <script src="js/controllers/UserEditAdController.js"></script>
 <script src="js/controllers/LeftSideBarController.js"></script>
 <script src="js/controllers/AdminHomeController.js"></script>
+<script src="js/controllers/AdminEditAdController.js"></script>
 
 </body>
 </html>

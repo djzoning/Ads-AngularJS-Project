@@ -58,6 +58,15 @@ app.factory('adsService', function($http, $resource, baseServiceUrl, authService
         },
         getAdminAds: function(params, success, error){
             return adminAdsResource.getAll(params, success, error);
+        },
+        adminGetAdById: function(id, success, error){
+            var request = {
+                method: 'GET',
+                url:baseServiceUrl + '/api/admin/ads/' + id,
+                headers: authService.getAuthHeaders()
+            };
+
+            $http(request).success(success).error(error);
         }
     };
 });

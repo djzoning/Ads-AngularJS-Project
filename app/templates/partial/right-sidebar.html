@@ -38,13 +38,13 @@
         <h2>Categories</h2>
         <ul class="sidebar-menu">
             <li class="special"
-                ng-class="{'selected' : selectedCategoryId == null}"
+                ng-class="{'selected' : adminSelectedCategoryId == null}"
                 ng-click="adminCategoryClicked(null)">
                 All
             </li>
             <li ng-repeat="category in categories"
                 ng-click="adminCategoryClicked(category.id)"
-                ng-class="{'selected' : selectedCategoryId == category.id}">
+                ng-class="{'selected' : adminSelectedCategoryId == category.id}">
                 {{category.name}}
             </li>
         </ul>

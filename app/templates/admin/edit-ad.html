@@ -1,0 +1,55 @@
+<div class="box">
+    <h2>Edit Ad</h2>
+    <h1>{{name}}</h1>
+    <p>
+        <label for="title">Title:</label>
+        <input class="well" type="text" id="title" ng-model="adData.title" required />
+    </p>
+    <p>
+        <label for="text">Text:</label>
+    <div>
+        <textarea class="well" id="text" ng-model="adData.text" required></textarea>
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <input class="well" type="text" id="username" ng-model="adData.ownerUsername" required />
+    </div>
+    <div>
+        <label for="date">Date:</label>
+        <input class="well" type="date" id="date" ng-model="adData.rightDate" required />
+    </div>
+
+    </p>
+    <p class="well">
+        <label for="status">Status:</label>
+        <select id="status" ng-model="adData.status">
+            <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+        </select>
+    </p>
+    <p class="well">
+        <label for="category">Category:</label>
+        <select id="category" ng-model="adData.categoryId">
+            <option value="null">(None)</option>
+            <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+        </select>
+    </p>
+    <p class="well">
+        <label for="town">Town:</label>
+        <select id="town" ng-model="adData.townId">
+            <option value="null">(None)</option>
+            <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+        </select>
+    </p>
+    <p>
+        <a ng-click="editAd(adData)" class="button">Edit</a>
+        <a href="#/admin/ads" class="button">Cancel</a>
+    </p>
+    <p>
+        <label for="image">Image:</label>
+        <input type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)" />
+    <div class="image-box">
+        <p>Image Preview</p>
+    </div>
+    <p><strong>[Image should be less than 50 KB]</strong></p>
+    </p>
+</div>

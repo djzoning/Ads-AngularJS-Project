@@ -3,6 +3,10 @@ body {
     background-color: #E2F0D9;
 }
 
+header.admin-sign {
+    background-color: #ffff00;
+}
+
 #app-header {
     background-color: #A9D18E;
     border: #507E32 1px solid;

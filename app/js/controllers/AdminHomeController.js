@@ -64,4 +64,8 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize,
             notifyService.showError('Deleting advertisement failed', error);
         });
     };
+
+    $scope.saveAdId = function(id){
+        sessionStorage.setItem('adId', id);
+    }
 });
