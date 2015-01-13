@@ -18,4 +18,10 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize){
     };
 
     $scope.reloadAds();
+
+    $scope.$on('adminStatusSelectionChanged', function(event, adminSelectedStatus){
+        $scope.adsParams.status = adminSelectedStatus;
+        $scope.adsParams.startPage = 1;
+        $scope.reloadAds();
+    });
 });

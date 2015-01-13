@@ -61,12 +61,12 @@
     <ul class="sidebar-menu">
         <li class="special"
             ng-class="{'selected' : adminSelectedStatus == null}"
-            ng-click="statusClicked(null)">
+            ng-click="adminStatusClicked(null)">
             All
         </li>
         <li ng-repeat="status in statuses"
-            ng-click="statusClicked(status)"
-            ng-ngClass="{'selected' : adminSelectedStatus == status}">
+            ng-class="{'selected' : adminSelectedStatus == status}"
+            ng-click="adminStatusClicked(status)">
             {{status}}
         </li>
     </ul>
