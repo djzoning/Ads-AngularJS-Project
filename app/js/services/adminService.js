@@ -19,6 +19,15 @@ app.factory('adminService', function($http, baseServiceUrl, authService){
             };
 
             $http(request).success(success).error(error);
+        },
+        deleteAd: function(id, success, error){
+            var request = {
+                method: 'DELETE',
+                url: baseServiceUrl + '/api/admin/ads/' + id,
+                headers: authService.getAuthHeaders()
+            };
+
+            $http(request).success(success).error(error);
         }
     }
 });
