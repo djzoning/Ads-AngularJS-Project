@@ -48,11 +48,26 @@
 
 <div ng-if="authService.isAdmin()" class="box">
     <p>This is an admin account.</p>
+    <h2>Navigation</h2>
     <ul class="sidebar-menu">
-        <li><a href="#/">Home</a></li>
-        <li><a href="#/user/ads">My Ads</a></li>
-        <li><a href="#/user/ads/publish">Publish New Ad</a></li>
-        <li><a href="#/user/edit-profile">Edit Profile</a></li>
-        <li><a ng-click="logout()">Logout</a></li>
+        <li><a href="#/admin/home">Ads</a></li>
+        <li><a href="#/user/ads">Users</a></li>
+        <li><a href="#/user/ads/publish">Categories</a></li>
+        <li><a href="#/user/edit-profile">Towns</a></li>
+    </ul>
+</div>
+<div class="box">
+    <h2>Ads</h2>
+    <ul class="sidebar-menu">
+        <li class="special"
+            ng-class="{'selected' : adminSelectedStatus == null}"
+            ng-click="statusClicked(null)">
+            All
+        </li>
+        <li ng-repeat="status in statuses"
+            ng-click="statusClicked(status)"
+            ng-ngClass="{'selected' : adminSelectedStatus == status}">
+            {{status}}
+        </li>
     </ul>
 </div>

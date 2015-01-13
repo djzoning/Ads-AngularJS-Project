@@ -43,6 +43,11 @@ app.config(function ($routeProvider) {
         controller: 'UserEditAdController'
     });
 
+    $routeProvider.when('/admin/home', {
+        templateUrl: 'templates/admin/home.html',
+        controller: 'AdminHomeController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 

@@ -20,6 +20,17 @@ app.factory('adsService', function($http, $resource, baseServiceUrl, authService
         }
     );
 
+    var adminAdsResource = $resource(
+        baseServiceUrl + '/api/admin/ads',
+        null,
+        {
+            'getAll': {
+                method: 'GET',
+                headers: authService.getAuthHeaders()
+            }
+        }
+    );
+
     return {
         getAds: function(params, success, error){
             return adsResource.getAll(params, success, error);
@@ -44,6 +55,9 @@ app.factory('adsService', function($http, $resource, baseServiceUrl, authService
             };
 
             $http(request).success(success).error(error);
+        },
+        getAdminAds: function(params, success, error){
+            return adminAdsResource.getAll(params, success, error);
         }
     };
 });

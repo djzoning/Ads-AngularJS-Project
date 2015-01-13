@@ -11,4 +11,6 @@ app.controller('LeftSideBarController', function($scope, $location, $rootScope){
         $scope.selectedStatus = status;
         $rootScope.$broadcast('statusSelectionChanged', status);
     }
+
+    $scope.admin
 });
