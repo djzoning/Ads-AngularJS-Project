@@ -57,12 +57,15 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize,
     };
 
     $scope.delete = function(id){
-        adminService.deleteAd(id, function(data){
-            notifyService.showSuccess('Advertisement deleted');
-            $scope.reloadAds();
-        }, function(error){
-            notifyService.showError('Deleting advertisement failed', error);
-        });
+        var yes = confirm('Delete this ad?');
+        if (yes) {
+            adminService.deleteAd(id, function (data) {
+                notifyService.showSuccess('Advertisement deleted');
+                $scope.reloadAds();
+            }, function (error) {
+                notifyService.showError('Deleting advertisement failed', error);
+            });
+        }
     };
 
     $scope.saveAdId = function(id){

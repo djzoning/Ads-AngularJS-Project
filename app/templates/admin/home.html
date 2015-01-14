@@ -20,8 +20,9 @@
         <div><strong>Town:</strong> {{ad.townName}}</div>
         <div><strong>Status:</strong> {{ad.status}}</div>
         <hr />
-        <a class="button" ng-click="approve(ad.id)">Approve</a>
-        <a class="button" ng-click="reject(ad.id)">Reject</a>
+        <a ng-if="ad.status == 'WaitingApproval'" class="button" ng-click="approve(ad.id)">Approve</a>
+        <a ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'
+            || ad.status == 'Inactive'" class="button" ng-click="reject(ad.id)">Reject</a>
         <a class="button" href="#/admin/edit-ad" ng-click="saveAdId(ad.id)">Edit</a>
         <a class="button" ng-click="delete(ad.id)">Delete</a>
     </li>
