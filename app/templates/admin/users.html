@@ -1,0 +1,26 @@
+<!--<pagination total-items="data.numItems" ng-model="getUsersParams.startPage"-->
+            <!--items-per-page="getUsersParams.pageSize" ng-change="reloadUsers()"-->
+            <!--maxSize="9" boundary-links="true">-->
+<!--</pagination>-->
+
+<h2>Users</h2>
+<table ng-table="tableParams" class="table">
+    <tr ng-repeat="user in $data">
+        <td data-title="'Username'" sortable="'username'">
+            {{user.username}}
+        </td>
+        <td data-title="'Name'" sortable="'name'">
+            {{user.name}}
+        </td>
+        <td data-title="'Email'" sortable="'email'">
+            {{user.email}}
+        </td>
+        <td data-title="'PhoneNumber'" sortable="'phoneNumber'">
+            {{user.phoneNumber}}
+        </td>
+        <td>
+            <a>Edit</a>
+            <a>Delete</a>
+        </td>
+    </tr>
+</table>

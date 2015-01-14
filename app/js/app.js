@@ -1,10 +1,11 @@
 'use strict';
 
 var app = angular.module('app', [
-    'ngRoute', 'ngResource',
+    'ngRoute', 'ngResource', 'ngTable',
     'angular-loading-bar', 'ui.bootstrap.pagination']);
 
-app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
+//app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
+app.constant('baseServiceUrl', 'http://localhost:1337');
 app.constant('pageSize', 5);
 
 app.config(function ($routeProvider) {
@@ -51,6 +52,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/admin/edit-ad', {
         templateUrl: 'templates/admin/edit-ad.html',
         controller: 'AdminEditAdController'
+    });
+
+    $routeProvider.when('/admin/users', {
+        templateUrl: 'templates/admin/users.html',
+        controller: 'AdminUsersController'
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });

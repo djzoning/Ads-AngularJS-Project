@@ -1,6 +1,17 @@
 'use strict';
 
-app.factory('adminService', function($http, baseServiceUrl, authService){
+app.factory('adminService', function($http, $resource, baseServiceUrl, authService){
+    var usersResource = $resource(
+        baseServiceUrl + '/api/admin/users',
+        null,
+        {
+            'getAll': {
+                method: 'GET',
+                headers: authService.getAuthHeaders()
+            }
+        }
+    );
+
     return {
         approveAd: function(id, success, error){
             var request = {
@@ -38,6 +49,9 @@ app.factory('adminService', function($http, baseServiceUrl, authService){
             };
 
             $http(request).success(success).error(error);
+        },
+        getUsers: function(params, success, error){
+            return usersResource.getAll(params, success, error);
         }
     }
 });
