@@ -52,6 +52,31 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
         },
         getUsers: function(params, success, error){
             return usersResource.getAll(params, success, error);
+        },
+        getUserById: function(id, success, error){
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + '/api/admin/users/' + id,
+                headers: authService.getAuthHeaders(),
+            };
+
+            $http(request).success(success).error(error);
+        },
+        editUser: function(username, user, success, error){
+            $http({
+                method: 'PUT',
+                url: baseServiceUrl + '/api/admin/user/' + username,
+                headers: authService.getAuthHeaders(),
+                data: user
+            }).success(success).error(error);
+        },
+        changePassword: function(pass, success, error){
+            $http({
+                method: 'PUT',
+                url: baseServiceUrl + '/api/admin/setpassword',
+                headers: authService.getAuthHeaders(),
+                data: pass
+            }).success(success).error(error);
         }
     }
 });

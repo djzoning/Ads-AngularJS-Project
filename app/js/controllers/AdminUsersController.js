@@ -2,6 +2,8 @@
 
 app.controller('AdminUsersController', function($scope, $filter, ngTableParams, adminService, notifyService){
 
+    $scope.ready = false;
+
     $scope.getUsersParams = {
         'startPage': 1,
         'pageSize': 10
@@ -18,6 +20,7 @@ app.controller('AdminUsersController', function($scope, $filter, ngTableParams, 
             }
 
             if (!(usersData.numPages > $scope.getUsersParams.startPage)) {
+                $scope.ready = true;
                 $scope.tableParams = new ngTableParams({
                     page: 1,
                     count: 10,
@@ -46,5 +49,7 @@ app.controller('AdminUsersController', function($scope, $filter, ngTableParams, 
 
     $scope.reloadUsers();
 
-
+    $scope.saveUserId = function(userId){
+        sessionStorage.userId = userId;
+    }
 });

@@ -4,7 +4,7 @@
 <!--</pagination>-->
 
 <h2>Users</h2>
-<table ng-table="tableParams" class="table">
+<table ng-table="tableParams" class="well table table-striped table-hover table-condensed table-bordered" ng-cloak>
     <tr ng-repeat="user in $data">
         <td data-title="'Username'" sortable="'username'">
             {{user.username}}
@@ -18,9 +18,10 @@
         <td data-title="'PhoneNumber'" sortable="'phoneNumber'">
             {{user.phoneNumber}}
         </td>
-        <td>
-            <a>Edit</a>
-            <a>Delete</a>
+        <td data-title="'Action'">
+            <a href="#/admin/user-edit" ng-click="saveUserId(user.id)">Edit</a>
+            <a href="#/admin/user-delete" ng-click="saveUserId(user.id)">Delete</a>
         </td>
     </tr>
 </table>
+<img src="images/loading.gif" ng-hide="ready" />

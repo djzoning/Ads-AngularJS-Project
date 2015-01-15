@@ -3,7 +3,9 @@
             maxSize="9" boundary-links="true">
 </pagination>
 
-<ul class="ads">
+<img src="images/loading.gif" ng-hide="ready" />
+
+<ul class="ads" ng-cloak>
     <li ng-repeat="ad in data.ads" class="box">
         <h1>{{ad.title}}</h1>
         <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>

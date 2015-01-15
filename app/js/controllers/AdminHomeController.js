@@ -2,6 +2,7 @@
 
 app.controller('AdminHomeController', function($scope, adsService, pageSize,
                                                adminService, notifyService){
+    $scope.ready = false;
 
     $scope.adsParams = {
         'startPage' : 1,
@@ -12,6 +13,7 @@ app.controller('AdminHomeController', function($scope, adsService, pageSize,
         adsService.getAdminAds($scope.adsParams,
         function success(data){
             $scope.data = data;
+            $scope.ready = true;
         },
         function error (error) {
             notifyService.showError('Loading ads failed', error);
