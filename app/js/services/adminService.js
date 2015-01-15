@@ -77,6 +77,13 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 headers: authService.getAuthHeaders(),
                 data: pass
             }).success(success).error(error);
+        },
+        deleteUser: function(username, success, error){
+            $http({
+                method: 'DELETE',
+                url: baseServiceUrl + '/api/admin/user/' + username,
+                headers: authService.getAuthHeaders()
+            }).success(success).error(error);
         }
     }
 });
