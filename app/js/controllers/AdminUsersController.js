@@ -6,18 +6,17 @@ app.controller('AdminUsersController', function($scope, $filter, ngTableParams, 
 
     $scope.getUsersParams = {
         'startPage': 1,
-        'pageSize': 10
+        'pageSize': 1000
     };
 
     var data = [];
 
     $scope.reloadUsers = function(){
-        adminService.getUsers($scope.getUsersParams, function(usersData){
+
+        adminService.getUsers($scope.getUsersParams, function (usersData) {
             $scope.data = usersData;
 
-            for(var i in usersData.users){
-                data.push(usersData.users[i]);
-            }
+            data = data.concat(usersData.users);
 
             if (!(usersData.numPages > $scope.getUsersParams.startPage)) {
                 $scope.ready = true;
@@ -42,7 +41,7 @@ app.controller('AdminUsersController', function($scope, $filter, ngTableParams, 
                 $scope.getUsersParams.startPage++;
                 $scope.reloadUsers();
             }
-        }, function(error){
+        }, function (error) {
             notifyService.showError('Loading users failed', error);
         });
     };
