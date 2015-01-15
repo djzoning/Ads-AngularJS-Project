@@ -79,6 +79,11 @@ app.config(function ($routeProvider) {
         controller: 'AdminTownsController'
     });
 
+    $routeProvider.when('/admin/category-edit', {
+            templateUrl: 'templates/admin/category-edit.html',
+            controller: 'AdminCategoryEditController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 

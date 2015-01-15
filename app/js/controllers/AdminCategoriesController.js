@@ -47,7 +47,7 @@ app.controller('AdminCategoriesController', function($scope, $filter, adminServi
 
     $scope.reloadCategories();
 
-    $scope.saveCategoryId = function(categoryId){
-        sessionStorage.categoryId = categoryId;
+    $scope.saveCategory = function(category){
+        sessionStorage.category = JSON.stringify(category);
     }
 });

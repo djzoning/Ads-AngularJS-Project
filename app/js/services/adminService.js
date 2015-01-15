@@ -98,6 +98,14 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
         },
         getCategories: function(params, success, error){
             return categoriesResource.getAll(params, success, error);
+        },
+        editCategory: function(category, success, error){
+            $http({
+                method: 'PUT',
+                url: baseServiceUrl + '/api/admin/categories/' + category.id,
+                headers: authService.getAuthHeaders(),
+                data: {name: category.username}
+            }).success(success).error(error);
         }
     }
 });
