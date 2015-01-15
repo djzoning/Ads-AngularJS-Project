@@ -12,6 +12,17 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
         }
     );
 
+    var categoriesResource = $resource(
+        baseServiceUrl + '/api/admin/categories',
+        null,
+        {
+            'getAll': {
+                method: 'GET',
+                headers: authService.getAuthHeaders()
+            }
+        }
+    );
+
     return {
         approveAd: function(id, success, error){
             var request = {
@@ -84,6 +95,9 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 url: baseServiceUrl + '/api/admin/user/' + username,
                 headers: authService.getAuthHeaders()
             }).success(success).error(error);
+        },
+        getCategories: function(params, success, error){
+            return categoriesResource.getAll(params, success, error);
         }
     }
 });

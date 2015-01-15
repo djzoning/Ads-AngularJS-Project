@@ -1,0 +1,20 @@
+<h2>Categories</h2>
+<div class="alert">
+    <a class="button" href="#/admin/create-category">Create New Category</a>
+</div>
+<table ng-table="tableParams" class="well table table-striped table-hover table-condensed table-bordered" ng-cloak>
+    <tr ng-repeat="category in $data">
+        <td data-title="'Id'" sortable="'id'">
+            {{category.id}}
+        </td>
+        <td data-title="'Name'" sortable="'username'">
+            {{category.username}}
+        </td>
+        <td data-title="'Action'">
+            <a href="#/admin/category-edit" ng-click="saveCategoryId(category.id)">Edit</a>
+            <a href="#/admin/category-delete" ng-click="saveCategoryId(category.id)">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<img src="images/loading.gif" ng-hide="ready" />
