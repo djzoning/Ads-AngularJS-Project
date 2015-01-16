@@ -3,7 +3,6 @@
 app.controller('AdminCategoryEditController', function($scope, $location,
                                                        adminService,
                                                        notifyService){
-    $scope.name = 'Ivan';
     $scope.category = JSON.parse(sessionStorage.category);
 
     $scope.editCategory = function(categoryName){

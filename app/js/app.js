@@ -99,6 +99,11 @@ app.config(function ($routeProvider) {
         controller: 'AdminTownCreateController'
     });
 
+    $routeProvider.when('/admin/town-edit', {
+        templateUrl: 'templates/admin/town-edit.html',
+        controller: 'AdminTownEditController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 

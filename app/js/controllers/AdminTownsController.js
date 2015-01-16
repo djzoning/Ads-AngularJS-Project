@@ -41,4 +41,8 @@ app.controller('AdminTownsController', function($scope, $filter, adminService, n
             });
     };
     $scope.reloadTowns();
+
+    $scope.saveTown = function(town){
+        sessionStorage.town = JSON.stringify(town);
+    }
 });

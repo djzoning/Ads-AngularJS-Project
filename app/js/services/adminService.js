@@ -143,6 +143,14 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 headers: authService.getAuthHeaders(),
                 data: {name: townName}
             }).success(success).error(error);
+        },
+        editTown: function(town, success, error){
+            $http({
+                method: 'PUT',
+                url: baseServiceUrl + '/api/admin/towns/' + town.id,
+                headers: authService.getAuthHeaders(),
+                data: {name: town.username}
+            }).success(success).error(error);
         }
     }
 });
