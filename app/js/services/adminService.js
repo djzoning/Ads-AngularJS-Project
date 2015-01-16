@@ -135,6 +135,14 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
         },
         getTowns: function(params, success, error){
             return townsResource.getAll(params, success, error);
+        },
+        createTown: function(townName, success, error){
+            $http({
+                method: 'POST',
+                url: baseServiceUrl + '/api/admin/towns',
+                headers: authService.getAuthHeaders(),
+                data: {name: townName}
+            }).success(success).error(error);
         }
     }
 });

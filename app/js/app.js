@@ -94,6 +94,11 @@ app.config(function ($routeProvider) {
         controller: 'AdminCategoryCreateController'
     });
 
+    $routeProvider.when('/admin/town-create', {
+        templateUrl: 'templates/admin/town-create.html',
+        controller: 'AdminTownCreateController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 
