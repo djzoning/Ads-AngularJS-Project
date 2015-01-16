@@ -106,6 +106,21 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 headers: authService.getAuthHeaders(),
                 data: {name: category.username}
             }).success(success).error(error);
+        },
+        deleteCategory: function(id, success, error){
+            $http({
+                method: 'DELETE',
+                url: baseServiceUrl + '/api/admin/categories/' + id,
+                headers: authService.getAuthHeaders()
+            }).success(success).error(error);
+        },
+        createCategory: function(categoryName, success, error){
+            $http({
+                method: 'POST',
+                url: baseServiceUrl + '/api/admin/categories',
+                headers: authService.getAuthHeaders(),
+                data:{name: categoryName}
+            }).success(success).error(error);
         }
     }
 });

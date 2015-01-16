@@ -1,0 +1,14 @@
+<div class="col-md-5">
+    <div class="box">
+        <h2>Create Category - {{name}}</h2>
+        <hr/>
+        <div class="form-inline">
+            <label for="category">Category:</label>
+            <input class="form-control" id="category" type="text" ng-model="categoryName" />
+        </div>
+        <div>
+            <a class="button" ng-click="createCategory(categoryName)">Create</a>
+            <a class="button" ng-href="#/admin/categories">Cancel</a>
+        </div>
+    </div>
+</div>

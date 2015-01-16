@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AdminUserEditController', function($scope, adminService,
+app.controller('AdminUserEditController', function($scope, $location, adminService,
                                                    townsService, notifyService){
     $scope.towns = townsService.getTowns();
     $scope.id = sessionStorage.userId;
@@ -17,6 +17,7 @@ app.controller('AdminUserEditController', function($scope, adminService,
     $scope.editUser = function(user){
         adminService.editUser(user.userName, user, function(data){
             notifyService.showSuccess(data.message);
+            $location.path('/admin/users');
         }, function(error){
             notifyService.showError('The resource you are looking for has been removed, had its name changed, or is temporarily unavailable.', error);
         });

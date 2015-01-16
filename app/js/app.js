@@ -84,6 +84,16 @@ app.config(function ($routeProvider) {
             controller: 'AdminCategoryEditController'
     });
 
+    $routeProvider.when('/admin/category-delete', {
+        templateUrl: 'templates/admin/category-delete.html',
+        controller: 'AdminCategoryDeleteController'
+    });
+
+    $routeProvider.when('/admin/category-create', {
+        templateUrl: 'templates/admin/category-create.html',
+        controller: 'AdminCategoryCreateController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 
