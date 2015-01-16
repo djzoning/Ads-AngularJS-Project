@@ -1,34 +1,40 @@
-<pagination total-items="data.numItems" ng-model="adsParams.startPage"
-            items-per-page="adsParams.pageSize" ng-change="reloadAds()"
-            maxSize="9" boundary-links="true">
-</pagination>
-
 <img src="images/loading.gif" ng-hide="ready" />
 
-<ul class="ads" ng-cloak>
-    <li ng-repeat="ad in data.ads" class="box">
-        <h1>{{ad.title}}</h1>
-        <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
-        <div ng-if="ad.imageDataUrl">
-            <strong>Image:</strong>
-            <img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
-        </div>
-        <div><strong>Text:</strong> {{ad.text}}</div>
-        <div><strong>Username:</strong> {{ad.ownerUsername}}</div>
-        <div><strong>Name:</strong> {{ad.ownerName}}</div>
-        <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
-        <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
-        <div><strong>Category:</strong> {{ad.categoryName}}</div>
-        <div><strong>Town:</strong> {{ad.townName}}</div>
-        <div><strong>Status:</strong> {{ad.status}}</div>
-        <hr />
-        <a ng-if="ad.status == 'WaitingApproval'" class="button" ng-click="approve(ad.id)">Approve</a>
-        <a ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'
-            || ad.status == 'Inactive'" class="button" ng-click="reject(ad.id)">Reject</a>
-        <a class="button" href="#/admin/edit-ad" ng-click="saveAdId(ad.id)">Edit</a>
-        <a class="button" ng-click="delete(ad.id)">Delete</a>
-    </li>
-</ul>
+<div ng-show="ready && data.ads.length!=0">
+    <pagination total-items="data.numItems" ng-model="adsParams.startPage"
+                items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                max-size="9" boundary-links="true">
+    </pagination>
+    <ul class="ads" ng-cloak>
+        <li ng-repeat="ad in data.ads" class="box">
+            <h1>{{ad.title}}</h1>
+            <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
+            <div ng-if="ad.imageDataUrl">
+                <strong>Image:</strong>
+                <img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
+            </div>
+            <div><strong>Text:</strong> {{ad.text}}</div>
+            <div><strong>Username:</strong> {{ad.ownerUsername}}</div>
+            <div><strong>Name:</strong> {{ad.ownerName}}</div>
+            <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
+            <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
+            <div><strong>Category:</strong> {{ad.categoryName}}</div>
+            <div><strong>Town:</strong> {{ad.townName}}</div>
+            <div><strong>Status:</strong> {{ad.status}}</div>
+            <hr />
+            <a ng-if="ad.status == 'WaitingApproval'" class="button" ng-click="approve(ad.id)">Approve</a>
+            <a ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'
+                || ad.status == 'Inactive'" class="button" ng-click="reject(ad.id)">Reject</a>
+            <a class="button" href="#/admin/edit-ad" ng-click="saveAdId(ad.id)">Edit</a>
+            <a class="button" ng-click="delete(ad.id)">Delete</a>
+        </li>
+    </ul>
+    <pagination total-items="data.numItems" ng-model="adsParams.startPage"
+                items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                max-size="9" boundary-links="true">
+    </pagination>
+
+</div>
 
 <div ng-if="data.ads.length==0" class="box no-data">
     No ads found.

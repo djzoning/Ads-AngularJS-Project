@@ -2,6 +2,8 @@
 
 app.controller('HomeController',
         function($scope, adsService, notifyService, pageSize){
+    $scope.ready = false;
+
     $scope.adsParams = {
         'startPage' : 1,
         'pageSize' : pageSize
@@ -11,6 +13,7 @@ app.controller('HomeController',
         adsService.getAds($scope.adsParams,
         function success(data){
             $scope.data = data;
+            $scope.ready = true;
         },
         function error(error){
             notifyService.showError("Cannot load ads", error);

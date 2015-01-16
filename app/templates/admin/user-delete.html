@@ -1,32 +1,37 @@
-<div class="box">
-    <h2>Confirm Deleting User</h2>
-    <hr/>
-    <div form-group>
-        <label for="username">Username:</label>
-        <input ng-disabled="true" type="text" id="username" ng-model="user.userName" class="form-control" />
-    </div>
+<div class="col-md-5">
+    <div class="box">
+        <h2>Confirm Deleting User</h2>
+        <hr/>
+        <div form-group>
+            <label for="username">Username:</label>
+            <input ng-disabled="true" type="text" id="username" ng-model="user.userName" class="form-control" />
+        </div>
 
-    <div form-group>
-        <label for="name">Name::</label>
-        <input ng-disabled="true" type="text" id="name" ng-model="user.name" class="form-control" />
-    </div>
+        <div form-group>
+            <label for="name">Name::</label>
+            <input ng-disabled="true" type="text" id="name" ng-model="user.name" class="form-control" />
+        </div>
 
-    <div form-group>
-        <label for="email">Email:</label>
-        <input ng-disabled="true" type="text" id="email" ng-model="user.email" class="form-control" />
-    </div>
+        <div form-group>
+            <label for="email">Email:</label>
+            <input ng-disabled="true" type="text" id="email" ng-model="user.email" class="form-control" />
+        </div>
 
-    <div form-group>
-        <label for="phone">Phone:</label>
-        <input ng-disabled="true" type="text" id="phone" ng-model="user.phoneNumber" class="form-control" />
-    </div>
+        <div form-group>
+            <label for="phone">Phone:</label>
+            <input ng-disabled="true" type="text" id="phone" ng-model="user.phoneNumber" class="form-control" />
+        </div>
 
-    <div form-group>
-        <label for="town">Town:</label>
-        <input ng-disabled="true" type="text" id="town" ng-model="user.town.name" class="form-control" />
-    </div>
-    <div>
-        <a class="button" ng-click="deleteUser(user.userName)">Delete</a>
-        <a class="button" href="#/admin/users">Cancel</a>
+        <div form-group>
+            <label for="town">Town:</label>
+            <input ng-disabled="true" type="text" id="town" ng-model="user.town.name" class="form-control" />
+        </div>
+        <div>
+            <a class="button" ng-click="deleteUser(user.userName)">Delete</a>
+            <a class="button" href="#/admin/users">Cancel</a>
+        </div>
+        <div>
+            <strong>Deleting the user will also delete all ads, created by this user!</strong>
+        </div>
     </div>
 </div>

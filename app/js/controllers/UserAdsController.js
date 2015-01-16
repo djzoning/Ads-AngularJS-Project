@@ -3,6 +3,8 @@
 app.controller('UserAdsController', function($scope, $http, authService,
         userAdsService, pageSize, adsService, baseServiceUrl,
         notifyService, userService){
+    $scope.ready = false;
+
     $scope.userAdsParams = {
         startPage: 1,
         pageSize: pageSize//,
@@ -13,6 +15,7 @@ app.controller('UserAdsController', function($scope, $http, authService,
         adsService.getUserAds($scope.userAdsParams,
             function (data) {
                 $scope.data = data;
+                $scope.ready = true;
             },
             function (error) {
                 notifyService.showError('Loading user ads failed', error)
