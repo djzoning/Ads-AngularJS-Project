@@ -104,6 +104,11 @@ app.config(function ($routeProvider) {
         controller: 'AdminTownEditController'
     });
 
+    $routeProvider.when('/admin/town-delete', {
+        templateUrl: 'templates/admin/town-delete.html',
+        controller: 'AdminTownDeleteController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 

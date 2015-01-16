@@ -151,6 +151,13 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 headers: authService.getAuthHeaders(),
                 data: {name: town.username}
             }).success(success).error(error);
+        },
+        deleteTown: function(id, success, error){
+            $http({
+                method: 'DELETE',
+                url: baseServiceUrl + '/api/admin/towns/' + id,
+                headers: authService.getAuthHeaders()
+            }).success(success).error(error);
         }
     }
 });
