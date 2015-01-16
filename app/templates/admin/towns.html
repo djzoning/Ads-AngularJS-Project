@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<h2>Towns</h2>
+<div class="alert">
+    <a class="button" href="#/admin/town-create">Create New Town</a>
+</div>
+<table ng-table="tableParams" class="well table table-striped table-hover table-condensed table-bordered" ng-cloak>
+    <tr ng-repeat="town in $data">
+        <td data-title="'Id'" sortable="'id'">
+            {{town.id}}
+        </td>
+        <td data-title="'Name'" sortable="'username'">
+            {{town.username}}
+        </td>
+        <td data-title="'Action'">
+            <a href="#/admin/town-edit" ng-click="saveTown(category)">Edit</a>
+            <a href="#/admin/town-delete" ng-click="saveTown(category)">Delete</a>
+        </td>
+    </tr>
+</table>
 
-</body>
-</html>
+<img src="images/loading.gif" ng-hide="ready" />

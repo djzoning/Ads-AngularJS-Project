@@ -13,7 +13,7 @@ app.controller('RightSidebarController', function($scope, $rootScope, $location,
     $scope.adminCategoryClicked = function(adminClickedCategoryId){
         $scope.adminSelectedCategoryId = adminClickedCategoryId;
         $rootScope.$broadcast('adminCategorySelectionChanged', adminClickedCategoryId);
-    }
+    };
 
     $scope.townClicked = function(clickedTownId){
         $scope.selectedTownId = clickedTownId;
@@ -28,7 +28,9 @@ app.controller('RightSidebarController', function($scope, $rootScope, $location,
     $scope.checkUrl = function(){
         return $location.path().indexOf('/user') == -1
             && $location.path().indexOf('/login') == -1
-            &&  $location.path().indexOf('/register') == -1
-            && $location.path().indexOf('/admin/home') != -1;
+            && $location.path().indexOf('/register') == -1
+            && $location.path().indexOf('/towns') == -1
+            && ($location.path().indexOf('/admin/home') != -1
+            || $location.path().indexOf('/') != -1);
     }
 });

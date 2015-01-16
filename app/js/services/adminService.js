@@ -23,6 +23,17 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
         }
     );
 
+    var townsResource = $resource(
+        baseServiceUrl + '/api/admin/towns',
+        null,
+        {
+            'getAll': {
+                method: 'GET',
+                headers: authService.getAuthHeaders()
+            }
+        }
+    );
+
     return {
         approveAd: function(id, success, error){
             var request = {
@@ -121,6 +132,9 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 headers: authService.getAuthHeaders(),
                 data:{name: categoryName}
             }).success(success).error(error);
+        },
+        getTowns: function(params, success, error){
+            return townsResource.getAll(params, success, error);
         }
     }
 });
