@@ -26,7 +26,7 @@
             <a ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'
                 || ad.status == 'Inactive'" class="button" ng-click="reject(ad.id)">Reject</a>
             <a class="button" href="#/admin/edit-ad" ng-click="saveAdId(ad.id)">Edit</a>
-            <a class="button" ng-click="delete(ad.id)">Delete</a>
+            <a class="button" ng-href="#/admin/ad-delete" ng-click="saveAdId(ad.id)">Delete</a>
         </li>
     </ul>
     <pagination total-items="data.numItems" ng-model="adsParams.startPage"

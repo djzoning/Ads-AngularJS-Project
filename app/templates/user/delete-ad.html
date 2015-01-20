@@ -1,0 +1,32 @@
+<div class="col-md-6">
+    <div class="box">
+        <h2>Confirm Deleting Ad</h2>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input class="form-control" type="text" id="title" ng-model="adData.title" disabled />
+        </div>
+        <p>
+            <label for="text">Text:</label>
+        <div>
+            <textarea class="form-control" id="text" ng-model="adData.text" disabled></textarea>
+        </div>
+        <div>
+            <label>Category:</label>
+            <input class="form-control" type="text" disabled ng-model="adData.categoryName" />
+        </div>
+        <div>
+            <label>Town:</label>
+            <input class="form-control" type="text" disabled ng-model="adData.townName" />
+        </div>
+        <div>
+            <a ng-click="deleteAd(adData.id)" class="button">Delete</a>
+            <a href="#/user/ads" class="button">Cancel</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="box">
+        <label>Image:</label>
+        <img ng-src="{{adData.imageDataUrl}}" alt="Default picture" />
+    </div>
+</div>

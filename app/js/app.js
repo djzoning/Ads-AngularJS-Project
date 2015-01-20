@@ -109,6 +109,16 @@ app.config(function ($routeProvider) {
         controller: 'AdminTownDeleteController'
     });
 
+    $routeProvider.when('/admin/ad-delete', {
+        templateUrl: 'templates/admin/ad-delete.html',
+        controller: 'AdminAdDeleteController'
+    });
+
+    $routeProvider.when('/user/delete-ad', {
+        templateUrl: 'templates/user/delete-ad.html',
+        controller: 'UserDeleteAdController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
 

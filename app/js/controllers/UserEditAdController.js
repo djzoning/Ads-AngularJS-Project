@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserEditAdController', function($scope, adsService, townsService,
+app.controller('UserEditAdController', function($scope, $location, adsService, townsService,
         categoriesService, userService, notifyService){
 
     $scope.name = 'Ivan';
@@ -12,9 +12,10 @@ app.controller('UserEditAdController', function($scope, adsService, townsService
         function(data){
             notifyService.showSuccess('Advertisement edited');
             $scope.getAdInfo();
+            $location.path('/user/ads');
         },
         function(error){
-            notifyService.showError('Edit failed.\nTitle and text are required\nYou should type new values in the corresponding fields');
+            notifyService.showError('Edit failed.\nTitle and text are required\nYou should type new values in the corresponding fields', error);
         })
     };
 

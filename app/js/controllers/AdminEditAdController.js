@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AdminEditAdController', function($scope, adsService,
+app.controller('AdminEditAdController', function($scope, $location, adsService,
                                                  townsService, categoriesService,
                                                  notifyService, adminService){
 
@@ -24,6 +24,7 @@ app.controller('AdminEditAdController', function($scope, adsService,
         $scope.adData.date = parseDate(adData.rightDate);
         adminService.editAd($scope.adData.id, $scope.adData, function(data){
             notifyService.showSuccess('Advertisement edited');
+            $location.path('/admin/home');
         }, function(error){
             notifyService.showError('Editing advertisement failed. ' + error.message);
         })

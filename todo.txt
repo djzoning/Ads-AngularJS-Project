@@ -1,3 +1,3 @@
-Fix redirecting when edit some ad, user, town or category
-Make delete permission for ads by user and admin
 Fix editing ad, it should can change the picture
+Fix globalization check
+Add filtering for users, categories and towns

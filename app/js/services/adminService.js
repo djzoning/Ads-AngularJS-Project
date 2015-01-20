@@ -158,6 +158,13 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
                 url: baseServiceUrl + '/api/admin/towns/' + id,
                 headers: authService.getAuthHeaders()
             }).success(success).error(error);
+        },
+        getAdById: function(id, success, error){
+            $http({
+                method: 'GET',
+                url: baseServiceUrl + '/api/admin/ads/' + id,
+                headers: authService.getAuthHeaders()
+            }).success(success).error(error);
         }
     }
 });
