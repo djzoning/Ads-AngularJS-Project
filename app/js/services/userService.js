@@ -49,6 +49,7 @@ app.factory('userService', function($http, baseServiceUrl, authService){
                 .error(error);
         },
         editAd: function(id, userData, success, error){
+            userData.changeimage = true;
             var request = {
                 method: 'PUT',
                 url: baseServiceUrl + '/api/user/ads/' + id,

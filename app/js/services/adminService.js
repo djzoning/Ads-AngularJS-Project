@@ -63,6 +63,7 @@ app.factory('adminService', function($http, $resource, baseServiceUrl, authServi
             $http(request).success(success).error(error);
         },
         editAd: function(id, adData, success, error){
+            adData.changeimage = true;
             var request = {
                 method: 'PUT',
                 url: baseServiceUrl + '/api/admin/ads/' + id,

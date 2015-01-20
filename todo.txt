@@ -1,3 +1,2 @@
-Fix editing ad, it should can change the picture
 Fix globalization check
 Add filtering for users, categories and towns

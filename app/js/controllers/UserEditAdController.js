@@ -26,7 +26,7 @@ app.controller('UserEditAdController', function($scope, $location, adsService, t
             $scope.adData = data;
         },
         function(error){
-            notifyService.showError('Loading ad info failed');
+            notifyService.showError('Loading ad info failed', error);
         });
     };
 
@@ -35,13 +35,13 @@ app.controller('UserEditAdController', function($scope, $location, adsService, t
     townsService.getTowns(function(data){
         $scope.towns = data;
     },function(error){
-        notifyService.showError('Loading towns failed');
+        notifyService.showError('Loading towns failed', error);
     });
 
     categoriesService.getCategories(function(data){
         $scope.categories = data;
     },function(error){
-        notifyService('Loading categories failed');
+        notifyService('Loading categories failed', error);
     });
 
     $scope.fileSelected = function(fileInputField){
