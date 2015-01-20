@@ -124,7 +124,8 @@ app.config(function ($routeProvider) {
 
 app.run(function($rootScope, $location, authService){
     $rootScope.$on('$locationChangeStart', function(event){
-        if($location.path().indexOf('/user/') != -1 && !authService.isLoggedIn()){
+        if($location.path().indexOf('/user/') != -1 && !authService.isLoggedIn()
+        || $location.path().indexOf('/admin/') != -1 && !authService.isAdmin()){
             $location.path('/login');
         }
     })
