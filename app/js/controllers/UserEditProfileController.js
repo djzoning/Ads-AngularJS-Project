@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserEditProfileController', function($scope,
+app.controller('UserEditProfileController', function($scope, $location,
         userInfoService, notifyService, townsService, userService){
 
     var reloadUserInfo = function(){
@@ -17,10 +17,9 @@ app.controller('UserEditProfileController', function($scope,
         userInfoService.editProfile($scope.userInfo,
         function(data){
             notifyService.showSuccess(data.message);
-            reloadUserInfo();
+            $location.path('/');
         },
         function(error){
-            console.log(error);
             notifyService.showError(error.message);
         });
     };
@@ -35,6 +34,7 @@ app.controller('UserEditProfileController', function($scope,
         userService.changePassword(userPass,
         function(data){
             notifyService.showSuccess(data.message);
+            $location.path('/');
         },
         function(error){
             notifyService.showError('Changing password failed', error);

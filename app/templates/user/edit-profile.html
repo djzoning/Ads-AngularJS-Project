@@ -1,43 +1,45 @@
-<div class="box form-inline">
-    <h2>Edit profile - {{userInfo.name}}</h2>
-    <div class="box well-lg">
-        <div><strong>Name: </strong>
-            <input type="text"
-                   ng-model="userInfo.name"
-                   class="form-control"/>
-            <strong>Email: </strong>
-            <input type="email"
-                   ng-model="userInfo.email"
-                   class="form-control"/>
+<div class="col-md-6">
+    <div class="box">
+        <h2>Edit profile - {{userInfo.name}}</h2>
+        <div class="box well-lg">
+            <div><strong>Name: </strong>
+                <input type="text"
+                       ng-model="userInfo.name"
+                       class="form-control"/>
+                <strong>Email: </strong>
+                <input type="email"
+                       ng-model="userInfo.email"
+                       class="form-control"/>
+            </div>
+            <div><strong>Phone: </strong>
+                <input type="text"
+                       ng-model="userInfo.phoneNumber"
+                       class="form-control" />
+            <strong>Town id: </strong>
+                <select ng-model="userInfo.townId" class="form-control">
+                    <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+                </select>
+            </div>
+            <div>
+                <a class="button" ng-click="editUserProfile()">Edit profile</a>
+            </div>
         </div>
-        <div><strong>Phone: </strong>
-            <input type="text"
-                   ng-model="userInfo.phoneNumber"
-                   class="form-control" />
-        <strong>Town id: </strong>
-            <select ng-model="userInfo.townId" class="form-control">
-                <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
-            </select>
-        </div>
-        <div>
-            <a class="button" ng-click="editUserProfile()">Edit profile</a>
-        </div>
-    </div>
-    <div class="box well-lg">
-        <div>
-            <strong>Old password: </strong>
-            <input type="password"
-                   ng-model="userPass.oldPassword"
-                   class="form-control" />
-            <strong>Password: </strong>
-            <input type="password"
-                   ng-model="userPass.newPassword"
-                   class="form-control" />
-            <strong>Confirm Password: </strong>
-            <input type="password"
-                   ng-model="userPass.confirmPassword"
-                   class="form-control" />
-            <a class="button" ng-click="changePassword(userPass)">Change Password</a>
+        <div class="box well-lg">
+            <div>
+                <strong>Old password: </strong>
+                <input type="password"
+                       ng-model="userPass.oldPassword"
+                       class="form-control" />
+                <strong>Password: </strong>
+                <input type="password"
+                       ng-model="userPass.newPassword"
+                       class="form-control" />
+                <strong>Confirm Password: </strong>
+                <input type="password"
+                       ng-model="userPass.confirmPassword"
+                       class="form-control" />
+                <a class="button" ng-click="changePassword(userPass)">Change Password</a>
+            </div>
         </div>
     </div>
 </div>

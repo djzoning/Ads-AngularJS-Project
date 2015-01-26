@@ -1,6 +1,7 @@
 body {
     font-family: Calibri, Arial, serif;
-    background-color: #E2F0D9;
+    /*background-color: #E2F0D9;*/
+    background-image: url('../images/wallpaper-pattern.jpg');
 }
 
 header.admin-sign {
@@ -181,4 +182,21 @@ ul.sidebar-menu li a, ul.sidebar-menu li a:focus {
 .ad-image {
     max-width: 150px;
     max-height: 150px;
+}
+
+
+.div-inline {
+    display: inline;
+}
+
+.ad-details {
+    background-color: #BEED91;
+}
+
+#image-box {
+    margin-top: 30px;
+}
+
+.loading-image {
+    width: 50%;
 }

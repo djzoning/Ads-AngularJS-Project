@@ -11,112 +11,134 @@ app.constant('pageSize', 5);
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
-        controller: 'HomeController'
+        controller: 'HomeController',
+        title: 'Home'
     });
 
     $routeProvider.when('/login', {
         templateUrl: 'templates/login.html',
-        controller: 'LoginController'
+        controller: 'LoginController',
+        title: 'Login'
     });
 
     $routeProvider.when('/register', {
         templateUrl: 'templates/register.html',
-        controller: 'RegisterController'
+        controller: 'RegisterController',
+        title: 'Registration'
     });
 
     $routeProvider.when('/user/ads', {
         templateUrl: 'templates/user/user-ads.html',
-        controller: 'UserAdsController'
+        controller: 'UserAdsController',
+        title: 'User Ads'
     });
 
     $routeProvider.when('/user/ads/publish', {
         templateUrl: 'templates/user/publish-new-ad.html',
-        controller: 'UserPublishNewAdController'
+        controller: 'UserPublishNewAdController',
+        title: 'Publish New Ad'
     });
 
     $routeProvider.when('/user/edit-profile', {
         templateUrl: 'templates/user/edit-profile.html',
-        controller: 'UserEditProfileController'
+        controller: 'UserEditProfileController',
+        title: 'Edit Profile'
     });
 
     $routeProvider.when('/user/ads/edit', {
         templateUrl: 'templates/user/edit-ad.html',
-        controller: 'UserEditAdController'
+        controller: 'UserEditAdController',
+        title: 'Edit Ad'
     });
 
     $routeProvider.when('/admin/home', {
         templateUrl: 'templates/admin/home.html',
-        controller: 'AdminHomeController'
+        controller: 'AdminHomeController',
+        title: 'Home'
     });
 
     $routeProvider.when('/admin/edit-ad', {
         templateUrl: 'templates/admin/edit-ad.html',
-        controller: 'AdminEditAdController'
+        controller: 'AdminEditAdController',
+        title: 'Edit Ad'
     });
 
     $routeProvider.when('/admin/users', {
         templateUrl: 'templates/admin/users.html',
-        controller: 'AdminUsersController'
+        controller: 'AdminUsersController',
+        title: 'Users'
     });
 
     $routeProvider.when('/admin/user-edit', {
         templateUrl: 'templates/admin/user-edit.html',
-        controller: 'AdminUserEditController'
+        controller: 'AdminUserEditController',
+        title: 'Edit User'
     });
 
     $routeProvider.when('/admin/user-delete', {
         templateUrl: 'templates/admin/user-delete.html',
-        controller: 'AdminUserDeleteController'
+        controller: 'AdminUserDeleteController',
+        title: 'User Delete'
     });
 
     $routeProvider.when('/admin/categories', {
         templateUrl: 'templates/admin/categories.html',
-        controller: 'AdminCategoriesController'
+        controller: 'AdminCategoriesController',
+        title: 'Categories'
     });
 
     $routeProvider.when('/admin/towns', {
         templateUrl: 'templates/admin/towns.html',
-        controller: 'AdminTownsController'
+        controller: 'AdminTownsController',
+        title: 'Towns'
     });
 
     $routeProvider.when('/admin/category-edit', {
-            templateUrl: 'templates/admin/category-edit.html',
-            controller: 'AdminCategoryEditController'
+        templateUrl: 'templates/admin/category-edit.html',
+        controller: 'AdminCategoryEditController',
+        title: 'Edit Category'
     });
 
     $routeProvider.when('/admin/category-delete', {
         templateUrl: 'templates/admin/category-delete.html',
-        controller: 'AdminCategoryDeleteController'
+        controller: 'AdminCategoryDeleteController',
+        title: 'Delete Category'
     });
 
     $routeProvider.when('/admin/category-create', {
         templateUrl: 'templates/admin/category-create.html',
-        controller: 'AdminCategoryCreateController'
+        controller: 'AdminCategoryCreateController',
+        title: 'Create Category'
     });
 
     $routeProvider.when('/admin/town-create', {
         templateUrl: 'templates/admin/town-create.html',
-        controller: 'AdminTownCreateController'
+        controller: 'AdminTownCreateController',
+        title: 'Create Town'
     });
 
     $routeProvider.when('/admin/town-edit', {
         templateUrl: 'templates/admin/town-edit.html',
-        controller: 'AdminTownEditController'
+        controller: 'AdminTownEditController',
+        title: 'Edit Town'
     });
 
     $routeProvider.when('/admin/town-delete', {
         templateUrl: 'templates/admin/town-delete.html',
-        controller: 'AdminTownDeleteController'
+        controller: 'AdminTownDeleteController',
+        title: 'Delete Town'
     });
 
     $routeProvider.when('/admin/ad-delete', {
         templateUrl: 'templates/admin/ad-delete.html',
-        controller: 'AdminAdDeleteController'
+        controller: 'AdminAdDeleteController',
+        title: 'Delete Ad'
     });
 
     $routeProvider.when('/user/delete-ad', {
         templateUrl: 'templates/user/delete-ad.html',
-        controller: 'UserDeleteAdController'
+        controller: 'UserDeleteAdController',
+        title: 'Delete Ad'
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });

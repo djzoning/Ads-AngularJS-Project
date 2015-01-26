@@ -1,4 +1,4 @@
-<img src="images/loading.gif" ng-hide="ready" />
+<img class="loading-image" src="images/loading.gif" ng-hide="ready" />
 
 <div ng-show="ready && data.ads.length!=0">
     <pagination total-items="data.numItems" ng-model="userAdsParams.startPage"
@@ -8,16 +8,35 @@
 
     <ul class="ads">
         <li ng-repeat="ad in data.ads" class="box">
-            <h1>{{ad.title}}</h1>
-            <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
-            <div ng-if="ad.imageDataUrl">
-                <strong>Image:</strong>
-                <img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
+            <div>
+                <h1 class="div-inline">{{ad.title}}</h1>
+                <time class="pull-right">{{ad.date | date: 'dd-MMM-yyyy'}}</time>
             </div>
-            <div><strong>Text:</strong> {{ad.text}}</div>
-            <div><strong>Category:</strong> {{ad.categoryName}}</div>
-            <div><strong>Status:</strong> {{ad.status}}</div>
-            <div><strong>Town:</strong> {{ad.townName}}</div>
+
+            <div class="row">
+                <div id="image-box" class="col-md-4">
+                    <img ng-if="ad.imageDataUrl" class="ad-image" ng-src="{{ad.imageDataUrl}}" />
+                    <img ng-if="!ad.imageDataUrl" class="ad-image" src="images/no-image.png" />
+                </div>
+
+                <div class="col-md-8">
+                    <div class="box ad-details well-lg">{{ad.text}}</div>
+                    <div class="box ad-details well-lg"><strong>Category:</strong><span class="pull-right">{{ad.categoryName}}</span></div>
+                    <div class="box ad-details well-lg"><strong>Status:</strong><span class="pull-right">{{ad.status}}</span></div>
+                    <div class="box ad-details well-lg"><strong>Town:</strong><span class="pull-right">{{ad.townName}}</span></div>
+                </div>
+            </div>
+
+            <!--<h1>{{ad.title}}</h1>-->
+            <!--<div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>-->
+            <!--<div ng-if="ad.imageDataUrl">-->
+                <!--<strong>Image:</strong>-->
+                <!--<img class="ad-image" ng-src="{{ad.imageDataUrl}}" />-->
+            <!--</div>-->
+            <!--<div><strong>Text:</strong> {{ad.text}}</div>-->
+            <!--<div><strong>Category:</strong> {{ad.categoryName}}</div>-->
+            <!--<div><strong>Status:</strong> {{ad.status}}</div>-->
+            <!--<div><strong>Town:</strong> {{ad.townName}}</div>-->
             <div ng-if="ad.status == 'WaitingApproval' || ad.status == 'Published'"><a class="button" ng-click="deactivate(ad.id)">Deactivate</a></div>
             <div ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'"><a class="button" ng-href="#/user/delete-ad" ng-click="pushId(ad.id)">Delete</a></div>
             <div ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'"><a class="button" ng-click="publishAgain(ad.id)">Publish Again</a></div>

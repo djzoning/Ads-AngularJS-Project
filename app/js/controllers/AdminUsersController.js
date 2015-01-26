@@ -29,8 +29,8 @@ app.controller('AdminUsersController', function($scope, $filter, ngTableParams, 
                 }, {
                     total: data.length, // length of data
                     getData: function ($defer, params) {
-                        // use build-in angular filter
-                        //var orderedData = params.f() ?
+                        //use build-in angular filter
+                        //var orderedData = params.filter() ?
                         //    $filter('filter')(data, params.filter()) :
                         //    data;
                         //orderedData = params.sorting() ?
